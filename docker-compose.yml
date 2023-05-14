@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+    postgres_way_out:
+        container_name: postgres_container
+        image: postgres:14.5-alpine
+        restart: always
+#        RUN sudo apt-get install libc6-i18n
+#        RUN sudo locale-gen en_US.UTF-8
+#        RUN sudo update-locale LANG=en_US.UTF-8
+        env_file:
+            - environment/.env.postgres
+        ports:
+            - "5432:5432"

@@ -51,20 +51,20 @@ def scaner(bot, message):
 
 
 @bot.on_message(filters.command("id") & filters.private)
-def send_mi_id(bot, message):
+def send_my_id(bot, message):
     bot.send_message(message.chat.id, message.chat.id)
 
 
 @bot.on_message(filters.command("start") & filters.private)
 def start_message(bot, message):
     if len(message.command) > 1:
-        # send_mi_id(bot, message)
+        # send_my_id(bot, message)
         # print(message)
         bot.send_message(message.chat.id, f"Вы первый {message.command[1]}")
     else:
         bot.send_photo(
             message.chat.id,
-            "800.jpeg",
+            "images/800.jpeg",
             caption="**Выбор товара в магазине**\n\n"
             "На данный момент работает только один путь --1000-- - --Ананас-- - --Назад-- - --Назад--"
             " + 'Показать пример сообщения для курьера'"
@@ -201,7 +201,7 @@ def change_menu(bot, callback_query):
 
     elif callback_query.data == "A":
         mes = InputMediaPhoto(
-            media="900.jpg",
+            media="images/900.jpg",
             caption="Выберите хотите вы увидеть описание или добавить товар в корзину"
         )
         bot.edit_message_media(
@@ -224,7 +224,7 @@ def change_menu(bot, callback_query):
     elif callback_query.data == "back_taste":
         # bot.delete_messages(callback_query.message.chat.id, callback_query.message.id)
         mes = InputMediaPhoto(
-            media="800.jpeg",
+            media="images/800.jpeg",
             caption="Выберите один из 6ти вкусов:"
         )
         bot.edit_message_media(

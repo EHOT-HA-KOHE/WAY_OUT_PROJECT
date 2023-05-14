@@ -5,9 +5,13 @@ from sqlalchemy.orm import sessionmaker
 from src.db.models import Base
 
 
-USER = os.getenv("POSTGRES_USER")
-PASSWORD = os.getenv("POSTGRES_PASSWORD")
-BASE_NAME = os.getenv("POSTGRES_DB")
+# USER = os.getenv("POSTGRES_USER")
+# PASSWORD = os.getenv("POSTGRES_PASSWORD")
+# BASE_NAME = os.getenv("POSTGRES_DB")
+
+USER = "USER"
+PASSWORD = "PASSWORD"
+BASE_NAME = "MAIN"
 
 DRIVER = 'postgresql+psycopg2'
 HOST = 'localhost'
