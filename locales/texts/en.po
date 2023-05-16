@@ -25,3 +25,42 @@ msgstr "Hello, my name is {name} and I`m {age} years old!"
 
 msgid "fuck"
 msgstr "Go FUCK!"
+
+msgid "сhoose_language"
+msgstr "Сhoose language!"
+
+msgid "language_was_changed"
+msgstr "Your account language has been changed to EN"
+
+msgid "start_message"
+msgstr "Hello, we are glad to welcome you again in our application! 😊👍"
+
+msgid "start_register_message"
+msgstr "To have full functionality, you need to register, are you ready to do it now?"
+
+msgid "ask_name"
+msgstr "Enter name"
+
+msgid "ask_sex"
+msgstr "Enter sex"
+
+msgid "ask_age"
+msgstr "Enter age"
+
+msgid "ask_city"
+msgstr "Enter city"
+
+msgid "ask_info"
+msgstr "Enter information about yourself"
+
+msgid "ask_photo"
+msgstr "Submit a photo"
+
+msgid "finish_register"
+msgstr "Registration is over"
+
+msgid "dont_understand_you"
+msgstr "I don't understand what you want from me"
+
+msgid "still_dont_understand_you"
+msgstr "I still don't understand what you want from me"
