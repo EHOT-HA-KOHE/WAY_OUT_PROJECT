@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
     postgres_way_out:
-        container_name: postgres_container
+        container_name: postgres_container_way_out
         image: postgres:14.5-alpine
         restart: always
 #        RUN sudo apt-get install libc6-i18n

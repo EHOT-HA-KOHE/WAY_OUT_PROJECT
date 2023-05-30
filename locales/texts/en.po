@@ -26,7 +26,7 @@ msgstr "Hello, my name is {name} and I`m {age} years old!"
 msgid "fuck"
 msgstr "Go FUCK!"
 
-msgid "сhoose_language"
+msgid "select_language"
 msgstr "Сhoose language!"
 
 msgid "language_was_changed"
@@ -39,28 +39,65 @@ msgid "start_register_message"
 msgstr "To have full functionality, you need to register, are you ready to do it now?"
 
 msgid "ask_name"
-msgstr "Enter name"
+msgstr "**Choose a name:** \n\n__Enter a name or choose a suggestion__"
 
 msgid "ask_sex"
-msgstr "Enter sex"
+msgstr "**Select sex:**"
 
 msgid "ask_age"
-msgstr "Enter age"
+msgstr "**Enter your age:**👇"
 
 msgid "ask_city"
-msgstr "Enter city"
+msgstr "**Select your city:** \n\n__Enter a city or select suggested__👇"
 
 msgid "ask_info"
-msgstr "Enter information about yourself"
+msgstr "**Tell us about yourself**👇"
 
 msgid "ask_photo"
-msgstr "Submit a photo"
+msgstr "**Submit a photo for your profile**"
 
 msgid "finish_register"
-msgstr "Registration is over"
+msgstr "**Registration is over, your profile will look like this, apply the changes?**"
 
 msgid "dont_understand_you"
 msgstr "I don't understand what you want from me"
 
 msgid "still_dont_understand_you"
 msgstr "I still don't understand what you want from me"
+
+msgid "successful_register"
+msgstr "Registration was completed successfully"
+
+msgid "main_menu_my_actions"
+msgstr "My events"
+
+msgid "main_menu_wayout_events"
+msgstr "WAY_OUT events"
+
+msgid "main_menu_users_events"
+msgstr "Users events"
+
+msgid "main_menu_user_profile"
+msgstr "Profile"
+
+msgid "user_info"
+msgstr "**Now your account looks like this:**"
+
+msgid "edit_profile"
+msgstr "Edit profile"
+
+msgid "change_language"
+msgstr "Change language"
+
+msgid "main_menu"
+msgstr "Main menu"
+
+msgid "error_age"
+msgstr "Age must be numeric only"
+
+msgid "cancel"
+msgstr "Cancel"
+
+
+msgid "approve_changes"
+msgstr "Approve changes"
