@@ -38,25 +38,25 @@ msgstr "Hello, we are glad to welcome you again in our application! 😊👍"
 msgid "start_register_message"
 msgstr "To have full functionality, you need to register, are you ready to do it now?"
 
-msgid "ask_name"
+msgid "edit_user_ask_name"
 msgstr "**Choose a name:** \n\n__Enter a name or choose a suggestion__"
 
-msgid "ask_sex"
+msgid "edit_user_ask_sex"
 msgstr "**Select sex:**"
 
-msgid "ask_age"
+msgid "edit_user_ask_age"
 msgstr "**Enter your age:**👇"
 
-msgid "ask_city"
+msgid "edit_user_ask_city"
 msgstr "**Select your city:** \n\n__Enter a city or select suggested__👇"
 
-msgid "ask_info"
+msgid "edit_user_ask_info"
 msgstr "**Tell us about yourself**👇"
 
-msgid "ask_photo"
+msgid "edit_user_ask_photo"
 msgstr "**Submit a photo for your profile**"
 
-msgid "finish_register"
+msgid "edit_user_finish_register"
 msgstr "**Registration is over, your profile will look like this, apply the changes?**"
 
 msgid "dont_understand_you"
@@ -65,20 +65,20 @@ msgstr "I don't understand what you want from me"
 msgid "still_dont_understand_you"
 msgstr "I still don't understand what you want from me"
 
-msgid "successful_register"
+msgid "edit_user_successful_register"
 msgstr "Registration was completed successfully"
 
-msgid "main_menu_my_actions"
+msgid "main_menu_my_events_button"
 msgstr "My events"
 
-msgid "main_menu_wayout_events"
+msgid "main_menu_way_out_events_button"
 msgstr "WAY_OUT events"
 
-msgid "main_menu_users_events"
+msgid "main_menu_users_events_button"
 msgstr "Users events"
 
-msgid "main_menu_user_profile"
-msgstr "Profile"
+msgid "main_menu_user_profile_button"
+msgstr "Profile ⚙️"
 
 msgid "user_info"
 msgstr "**Now your account looks like this:**"
@@ -92,12 +92,137 @@ msgstr "Change language"
 msgid "main_menu"
 msgstr "Main menu"
 
-msgid "error_age"
+msgid "error_edit_user_ask_age"
 msgstr "Age must be numeric only"
 
 msgid "cancel"
 msgstr "Cancel"
 
-
 msgid "approve_changes"
 msgstr "Approve changes"
+
+msgid "do_this_later"
+msgstr "Do this later"
+
+msgid "yes"
+msgstr "Yes"
+
+msgid "no"
+msgstr "No"
+
+msgid "publish"
+msgstr "Publish"
+
+msgid "edit_event_approve_changes_text"
+msgstr "Your event looks like this: publish it or cancel the creation of the event 👆👆👆"
+
+msgid "edit_event_ask_title"
+msgstr "**Enter title for your event**👇"
+
+msgid "edit_event_ask_category_name"
+msgstr "**Enter category name for your event**👇"
+
+msgid "edit_event_ask_description"
+msgstr "**Enter description for your event**👇"
+
+msgid "edit_event_ask_city"
+msgstr "**Enter city for your event**👇"
+
+msgid "edit_event_ask_max_amount_of_people"
+msgstr "**Enter the maximum number of people that can participate in the event**👇"
+
+msgid "edit_event_ask_date"
+msgstr "**Enter date for your event**👇"
+
+msgid "edit_event_ask_location"
+msgstr "**Send location for your event**👇"
+
+msgid "edit_event_ask_photo"
+msgstr "**Send photo for your event**👇"
+
+
+msgid "create_new"
+msgstr "Create new"
+
+msgid "i_joined"
+msgstr "I joined"
+
+msgid "i_created"
+msgstr "I created"
+
+msgid "main_menu_my_events_text"
+msgstr "**Choose an action from the suggested:**"
+
+msgid "error_edit_event_ask_description"
+msgstr "**Text is too long, please send text up to 700 characters:**👇"
+
+msgid "successfully_completed_event_creation"
+msgstr "**Your event has been successfully published**👍👍👍"
+
+msgid "main_menu_users_events_categories_button"
+msgstr "Categories"
+
+msgid "main_menu_users_events_dates_button"
+msgstr "By dates"
+
+msgid "main_menu_users_events_random_event_button"
+msgstr "Random"
+
+msgid "main_menu_users_events_text"
+msgstr "How to sort events?"
+
+msgid "join_button"
+msgstr "Join"
+
+msgid "another_button"
+msgstr "Other"
+
+msgid "delete_button"
+msgstr "Delete"
+
+msgid "back_button"
+msgstr "Back"
+
+msgid "event_has_been_successfully_deleted"
+msgstr "Event has been successfully deleted"
+
+msgid "leave_button"
+msgstr "Leave"
+
+msgid "list_of_events_the_user_joined"
+msgstr "List of events the user joined 👆👆👆"
+
+msgid "list_of_events_the_user_joined_one_event"
+msgstr "User-joined event (single) 👆👆👆"
+
+msgid "user_successfully_del_from_the_event"
+msgstr "You left the event 🙀🤯 You can always return or join another event 😉😃"
+
+msgid "user_successfully_added_to_the_event"
+msgstr "You joined the event 😃👍 \nWe hope you enjoy your time 😉😃"
+
+msgid "choose_category_of_users_events_for_filter"
+msgstr "Choose a category 👇👇👇"
+
+
+
+msgid "list_of_events_the_user_created_one_event"
+msgstr "User-created event (single) 👆👆👆"
+
+msgid "list_of_events_the_user_created"
+msgstr "List of events the user created 👆👆👆"
+
+msgid "list_of_events_filter_category"
+msgstr "All events in the category:"
+
+msgid "list_of_events_filter_category_one_event"
+msgstr "The only event in the category:"
+
+msgid "list_of_random_events"
+msgstr "This is a random event, you can join it or click 'Other' to continue watching events in random order \n\nTotal events:"
+
+msgid "list_of_random_events_one_event"
+msgstr "Now only one event has been created \n\nTotal events:"
+
+
+

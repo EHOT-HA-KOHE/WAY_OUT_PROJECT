@@ -9,13 +9,13 @@ def update_user(tg_id: int, language: str, db_session, user):
     if user_in_db is None:
         new_user = user(tg_id=tg_id, language=language)
         db_session.add(new_user)
-        db_session.commit()
 
         user_in_db = db_session.query(user).filter(user.tg_id == tg_id).first()
 
     if language != user_in_db.language:
         user_in_db.language = language
-        db_session.commit()
+
+    db_session.commit()
 
 
 def choose_language_for_user_command(message, path_to_locales):
@@ -23,7 +23,7 @@ def choose_language_for_user_command(message, path_to_locales):
         [
             [
                 InlineKeyboardButton("RU", callback_data="change_lang_ru"),
-                InlineKeyboardButton("UA", callback_data="change_lang_ua")
+                InlineKeyboardButton("UK", callback_data="change_lang_ua")
             ],
             [InlineKeyboardButton("EN", callback_data="change_lang_en")],
         ]

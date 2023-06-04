@@ -1,0 +1,227 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: example\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-14 12:00+0000\n"
+"PO-Revision-Date: 2023-05-14 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "test_message"
+msgstr "Привіт світ!"
+
+msgid "hi"
+msgstr "Привіт!"
+
+msgid "hi_with_name {name}"
+msgstr "Привіт, {name}!"
+
+msgid "hi_with_name_and_age {name} {age}"
+msgstr "Привіт, мене звати {name} і мені {age} років!"
+
+msgid "fuck"
+msgstr "Іди НАХУЙ!"
+
+msgid "select_language"
+msgstr "Виберіть мову"
+
+msgid "language_was_changed"
+msgstr "Мову вашого облікового запису змінено на UK"
+
+msgid "start_message"
+msgstr "Здрастуйте, раді знову вас вітати в нашому додатку! 😊👍"
+
+msgid "start_register_message"
+msgstr "Щоб мати повний функціонал, вам потрібно зареєструватися, чи ви готові зробити це зараз?"
+
+msgid "edit_user_ask_name"
+msgstr "**Виберіть ім'я:** \n\n__Введіть ім'я або виберіть запропоноване__"
+
+msgid "edit_user_ask_sex"
+msgstr "**Виберіть стать:**"
+
+msgid "edit_user_ask_age"
+msgstr "**Введіть ваш вік:**👇"
+
+msgid "edit_user_ask_city"
+msgstr "**Виберіть ваше місто:** \n\n__Введіть місто або виберіть запропонований__👇"
+
+msgid "edit_user_ask_info"
+msgstr "**Розкажіть про себе**👇"
+
+msgid "edit_user_ask_photo"
+msgstr "**Надішліть фото для свого профілю**"
+
+msgid "edit_user_finish_register"
+msgstr "**Реєстрація закінчена, ваш профіль виглядатиме ось так, застосувати зміни?**"
+
+msgid "dont_understand_you"
+msgstr "Я не розумію чого ви від мене хочете"
+
+msgid "still_dont_understand_you"
+msgstr "Я все ще не розумію, що ви хочете від мене"
+
+msgid "edit_user_successful_register"
+msgstr "Реєстрація була закінчена успішно"
+
+
+msgid "main_menu_my_events_button"
+msgstr "Мої заходи"
+
+msgid "main_menu_way_out_events_button"
+msgstr "WAY_OUT заходи"
+
+msgid "main_menu_users_events_button"
+msgstr "Користувальницькі заходи"
+
+msgid "main_menu_user_profile_button"
+msgstr "Профіль ⚙️"
+
+msgid "user_info"
+msgstr "**Зараз ваш обліковий запис виглядає ось так:**"
+
+msgid "edit_profile"
+msgstr "Редагувати профіль"
+
+msgid "change_language"
+msgstr "Змінити мову"
+
+msgid "main_menu"
+msgstr "Головне меню"
+
+msgid "error_edit_user_ask_age"
+msgstr "Вік повинен складатися лише з цифр"
+
+msgid "cancel"
+msgstr "Скасувати"
+
+msgid "approve_changes"
+msgstr "Затвердити зміни"
+
+msgid "do_this_later"
+msgstr "Зробіть це пізніше"
+
+msgid "yes"
+msgstr "Так"
+
+msgid "no"
+msgstr "Ні"
+
+msgid "publish"
+msgstr "Опублікувати"
+
+msgid "edit_event_approve_changes_text"
+msgstr "Ваш захід має такий вигляд: опублікуйте його або скасуйте створення заходу 👆👆👆"
+
+msgid "edit_event_ask_title"
+msgstr "**Введіть назву події**👇"
+
+msgid "edit_event_ask_category_name"
+msgstr "**Введіть назву категорії для вашої події**👇"
+
+msgid "edit_event_ask_description"
+msgstr "**Введіть опис події**👇"
+
+msgid "edit_event_ask_city"
+msgstr "**CВведіть місто для вашої події**👇"
+
+msgid "edit_event_ask_max_amount_of_people"
+msgstr "**Введіть максимальну кількість людей, яка зможе взяти участь у заході**👇"
+
+msgid "edit_event_ask_date"
+msgstr "**Введіть дату вашої події**👇"
+
+msgid "edit_event_ask_location"
+msgstr "**Надішліть місце для вашої події**👇"
+
+msgid "edit_event_ask_photo"
+msgstr "**Надішліть фото для вашої події**👇"
+
+
+msgid "create_new"
+msgstr "Створити новий"
+
+msgid "i_joined"
+msgstr "Я приєднався"
+
+msgid "i_created"
+msgstr "Я створив"
+
+msgid "main_menu_my_events_text"
+msgstr "**Виберіть дію із запропонованих:"
+
+msgid "error_edit_event_ask_description"
+msgstr "**Текст надто довгий, надішліть текст довжиною до 700 символів:**👇"
+
+msgid "successfully_completed_event_creation"
+msgstr "**Ваш захід був успішно опублікований**👍👍👍"
+
+msgid "main_menu_users_events_categories_button"
+msgstr "Категорії"
+
+msgid "main_menu_users_events_dates_button"
+msgstr "За датами"
+
+msgid "main_menu_users_events_random_event_button"
+msgstr "Випадкове"
+
+msgid "main_menu_users_events_text"
+msgstr "Як сортувати події?"
+
+msgid "join_button"
+msgstr "Приєднатися"
+
+msgid "another_button"
+msgstr "Інше"
+
+msgid "delete_button"
+msgstr "Видалити"
+
+msgid "back_button"
+msgstr "Назад"
+
+msgid "event_has_been_successfully_deleted"
+msgstr "Подію успішно видалено"
+
+msgid "leave_button"
+msgstr "Залишити"
+
+msgid "list_of_events_the_user_joined"
+msgstr "Список заходів, до яких приєднався користувач 👆👆👆"
+
+msgid "list_of_events_the_user_joined_one_event"
+msgstr "Захід, до якого приєднався користувач (єдиний) 👆👆👆"
+
+msgid "user_successfully_del_from_the_event"
+msgstr "Ви залишили захід 🙀🤯 Ви завжди можете повернутися або приєднатися до іншого заходу 😉😃"
+
+msgid "user_successfully_added_to_the_event"
+msgstr "Ви приєдналися до заходу 😃👍 \nСподіваємося, що ви із задоволенням проведете час 😉😃"
+
+msgid "choose_category_of_users_events_for_filter"
+msgstr "Виберіть категорію 👇👇👇"
+
+
+
+msgid "list_of_events_the_user_created_one_event"
+msgstr "Захід, створений користувачем (єдиний) 👆👆👆"
+
+msgid "list_of_events_the_user_created"
+msgstr "Список заходів, створених користувачем 👆👆👆"
+
+msgid "list_of_events_filter_category"
+msgstr "Усі заходи у категорії:"
+
+msgid "list_of_events_filter_category_one_event"
+msgstr "Єдиний захід у категорії:"
+
+msgid "list_of_random_events"
+msgstr "Це випадковий захід, ви можете приєднатися до нього або натиснути 'Інше', щоб продовжити дивитися заходи у випадковому порядку \n\nУсього заходів:"
+
+msgid "list_of_random_events_one_event"
+msgstr "Зараз створено лише один захід \n\nУсього заходів:"
+

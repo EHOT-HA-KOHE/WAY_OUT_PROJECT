@@ -1,6 +1,6 @@
 from pyrogram.types import (InlineKeyboardMarkup, InlineKeyboardButton)
 
-from src.user_func.main_menu.user_profile_dir.files.edit_user_profile import change_statuses_in_database
+from src.user_func.edit_statuses_for_handler import edit_statuses_in_database
 
 from locales.locales_texts import return_local_text
 
@@ -37,10 +37,13 @@ def show_my_profile(user_id, db_session, user, path_to_locales):
 
 
 def edit_user_data(callback_query, db_session, user, path_to_locales):
-    change_statuses_in_database(status=False, message=callback_query.message, db_session=db_session, user=user)
+    user_in_db = db_session.query(user).filter(user.tg_id == callback_query.from_user.id).first()
+    user_in_db.status = "edit_user"
+
+    edit_statuses_in_database(status=False, reason="user", message=callback_query.message, db_session=db_session, user=user)
 
     cancel_mes = return_local_text(user_id=callback_query.from_user.id, text="cancel", locales_dir=path_to_locales)
-    response_text = return_local_text(user_id=callback_query.from_user.id, text="ask_name", locales_dir=path_to_locales)
+    response_text = return_local_text(user_id=callback_query.from_user.id, text="edit_user_ask_name", locales_dir=path_to_locales)
     keyboard = InlineKeyboardMarkup(
         [
             [
@@ -65,7 +68,7 @@ def change_interface_language(user_id, path_to_locales):
         [
             [
                 InlineKeyboardButton("RU", callback_data="change_lang_ru"),
-                InlineKeyboardButton("UA", callback_data="change_lang_ua")
+                InlineKeyboardButton("UK", callback_data="change_lang_uk")
             ],
             [InlineKeyboardButton("EN", callback_data="change_lang_en")],
             [InlineKeyboardButton(f"{main_menu}", callback_data="main_menu")],

@@ -5,7 +5,7 @@ import os
 LOCALE_DIR = '../../../locales/mo_files'
 
 # Установка языка и домена перевода
-language = 'ua'
+language = 'uk'
 translation_domain = 'messages'
 
 # Создание объекта gettext.Translations

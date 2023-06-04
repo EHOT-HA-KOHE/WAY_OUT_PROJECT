@@ -68,7 +68,7 @@ def show_my_lang(bot, message):
 def edit_profile(bot, message):
     response_text = return_local_text(
         user_id=message.chat.id,
-        text="ask_name",
+        text="edit_user_ask_name",
         locales_dir=PATH_TO_LOCALES
     )
     keyboard = InlineKeyboardMarkup(
@@ -89,7 +89,7 @@ def edit_profile(bot, message):
         reply_markup=keyboard,
     )
 
-    change_statuses_in_database(status=False, message=mes, db_session=db_session, user=User)
+    edit_statuses_in_database(status=False, reason="user", message=mes, db_session=db_session, user=User)
 
 
 @bot.on_message(filters.command("change_my_lang") & filters.private)
@@ -106,3 +106,49 @@ def change_my_lang(bot, message):
 @bot.on_message(filters.command("id") & filters.private)
 def send_my_id(bot, message):
     bot.send_message(message.chat.id, message.chat.id)
+
+
+@bot.on_message(filters.command("send_message_with_link") & filters.private)
+def send_message_with_link(bot, message):
+    text = "Привет! Вот ссылка на мой аккаунт: [Ссылка](https://t.me/vanchouz)"
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        # parse_mode="Markdown"
+    )
+
+
+@bot.on_message(filters.command("send_message_with_link_tg_id") & filters.private)
+def send_message_with_link(bot, message):
+    # text = "Привет! Вот ссылка на мой аккаунт: [Ссылка](https://t.me/vanchouz)"
+    # text = "Привет! Вот ссылка на мой аккаунт: [user](tg://user?id=582712403)" \
+    text = "Привет! Вот ссылка на мой аккаунт: [user](tg://user?id=691259064)" \
+           "\n\n[URL](https://pyrogram.org)"
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        # disable_web_page_preview=True,
+        parse_mode=enums.ParseMode.MARKDOWN
+    )
+
+
+@bot.on_message(filters.command("send_message_with_link_button") & filters.private)
+def send_message_with_link(bot, message):
+    text = "Привет! Вот ссылка на мой аккаунт:"
+    keyboard = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton(
+                text=f"SOME",
+                user_id=874821265,
+                # url="https://t.me/vanchouz",
+                # url="https://t.me/user?id=691259064",
+                )
+            ],
+        ]
+    )
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        reply_markup=keyboard,
+        # parse_mode="Markdown"
+    )
