@@ -6,11 +6,15 @@ from locales.locales_texts import return_local_text
 def update_user(tg_id: int, language: str, db_session, user):
     user_in_db = db_session.query(user).filter(user.tg_id == tg_id).first()
 
+    if language not in ["ru", "uk", "en"]:
+        language = "en"
+
     if user_in_db is None:
         new_user = user(tg_id=tg_id, language=language)
         db_session.add(new_user)
 
         user_in_db = db_session.query(user).filter(user.tg_id == tg_id).first()
+        # user_in_db.start_mes_id = message_id
 
     if language != user_in_db.language:
         user_in_db.language = language

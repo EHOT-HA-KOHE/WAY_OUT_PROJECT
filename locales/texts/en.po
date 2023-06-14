@@ -137,8 +137,20 @@ msgstr "**Enter date for your event**👇"
 msgid "edit_event_ask_location"
 msgstr "**Send location for your event**👇"
 
+msgid "edit_event_ask_location_prague"
+msgstr "**Send a geolocation or select a part of Prague where the event will take place**👇"
+
+msgid "edit_event_choose_part_of_prague_or_send_location"
+msgstr "**Send location for your event**👇"
+
+msgid "part_of_prague_button"
+msgstr "Prague ..."
+
 msgid "edit_event_ask_photo"
 msgstr "**Send photo for your event**👇"
+
+msgid "edit_event_ask_make_group"
+msgstr "**Do you want to automatically create a group to which all joined members will be added?**👇"
 
 
 msgid "create_new"
@@ -162,8 +174,8 @@ msgstr "**Your event has been successfully published**👍👍👍"
 msgid "main_menu_users_events_categories_button"
 msgstr "Categories"
 
-msgid "main_menu_users_events_dates_button"
-msgstr "By dates"
+msgid "main_menu_users_events_from_last_button"
+msgstr "From last"
 
 msgid "main_menu_users_events_random_event_button"
 msgstr "Random"
@@ -225,4 +237,46 @@ msgid "list_of_random_events_one_event"
 msgstr "Now only one event has been created \n\nTotal events:"
 
 
+
+msgid "you_dont_have_created_events"
+msgstr "You have no events created"
+
+msgid "you_dont_have_joined_to_events"
+msgstr "You have no events you have joined"
+
+msgid "your_event_has_been_sent_to_verif"
+msgstr "Your event has been sent to verify"
+
+msgid "events_dosent_exist"
+msgstr "There are currently no events available"
+
+msgid "list_of_events_from_last"
+msgstr "List of all events starting from the last created"
+
+msgid "list_of_events_from_last_one_event"
+msgstr "List of all events starting from the last created"
+
+msgid "users_list_button"
+msgstr "Participants"
+
+msgid "list_of_users_who_joined_this_event"
+msgstr "List of users who joined this event"
+
+msgid "location_button"
+msgstr "Place"
+
+msgid "hide_button"
+msgstr "Hide"
+
+msgid "follow_button"
+msgstr "Follow"
+
+msgid "write_button"
+msgstr "Write"
+
+msgid "creator_button"
+msgstr "Creator"
+
+msgid "chat_button"
+msgstr "Chat"
 

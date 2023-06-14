@@ -18,9 +18,10 @@ class Event(Base):
     date = Column(String)
     photo = Column(String)
     location = Column(String)
+    group_id = Column(BigInteger)
 
     temp_info = Column(JSON)
-    creator_id = Column(Integer, ForeignKey('users.tg_id'))
+    creator_id = Column(BigInteger, ForeignKey('users.tg_id'))
 
     creator = relationship('User', back_populates='events_created')
     attendees = relationship('User', secondary='user_event_association', overlaps="events_attended")
@@ -28,7 +29,7 @@ class Event(Base):
 
     def __init__(
             self, title="", creator="", language="", description="", city="", max_amount_of_people="",
-            date="", photo="", location="",  temp_info="", creator_id="",
+            date="", photo="", location="",  temp_info="", creator_id="", group_id=None,
     ):
         self.language = language
         self.title = title
@@ -41,12 +42,13 @@ class Event(Base):
         self.location = location
         self.temp_info = temp_info
         self.creator_id = creator_id
+        self.group_id = group_id
 
     def __repr__(self):
         return f'language: {self.language}, title: {self.title}, creator: {self.creator}, ' \
                f'description: {self.description}, city: {self.city}, max_amount_of_people: {self.max_amount_of_people}, ' \
                f'date: {self.date}, photo: {self.photo}, location: {self.location}, ' \
-               f'temp_info: {self.temp_info}, creator_id: {self.creator_id}' \
+               f'temp_info: {self.temp_info}, creator_id: {self.creator_id}, group_id: {self.group_id}' \
 
 
 
@@ -62,6 +64,7 @@ class User(Base):
     age = Column(String)
     photo = Column(String)
     status = Column(String)
+    start_mes_id = Column(String)
 
     statuses_edit_user = Column(JSON)
     statuses_edit_event = Column(JSON)
@@ -82,6 +85,7 @@ class User(Base):
             age="",
             photo="",
             status="",
+            start_mes_id="",
             statuses_edit_user="",
             statuses_edit_event="",
     ):
@@ -95,6 +99,7 @@ class User(Base):
         self.age = age
         self.photo = photo
         self.status = status
+        self.start_mes_id = start_mes_id
         self.statuses_edit_user = statuses_edit_user
         self.statuses_edit_event = statuses_edit_event
 
@@ -102,7 +107,7 @@ class User(Base):
         return f'tg_id: {self.tg_id}, language: {self.language}, ' \
                f'name: {self.name}, info: {self.info}, ' \
                f'city: {self.city}, sex: {self.sex}, ' \
-               f'age: {self.age}, photo: {self.photo}, status: {self.status}, ' \
+               f'age: {self.age}, photo: {self.photo}, status: {self.status}, start_mes_id: {self.start_mes_id}, ' \
                f'statuses_edit_user: {self.statuses_edit_user}, statuses_edit_event: {self.statuses_edit_event}, ' \
                f'lastUpdate: {self.last_update}'
 

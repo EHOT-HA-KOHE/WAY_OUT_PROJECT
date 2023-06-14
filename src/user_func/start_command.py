@@ -7,6 +7,7 @@ from locales.locales_texts import return_local_text
 
 
 def start_register_new_user(tg_id: int, message, db_session, user, path_to_locales):
+    # update_user(tg_id=tg_id, language=message.from_user.language_code, db_session=db_session, user=user, message_id=message.id)
     update_user(tg_id=tg_id, language=message.from_user.language_code, db_session=db_session, user=user)
     edit_statuses_in_database(status=True, reason="user", message=message, db_session=db_session, user=user)
 

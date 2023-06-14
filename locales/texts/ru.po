@@ -137,8 +137,20 @@ msgstr "**Введите дату вашего мероприятия**👇"
 msgid "edit_event_ask_location"
 msgstr "**Отправить место для вашего мероприятия**👇"
 
+msgid "edit_event_ask_location_prague"
+msgstr "**Отправьте геопозицию или выберите часть Праги в которой  будет проходить мероприятие**👇"
+
+msgid "edit_event_choose_part_of_prague_or_send_location"
+msgstr "**Send location for your event**👇"
+
+msgid "part_of_prague_button"
+msgstr "Прага ..."
+
 msgid "edit_event_ask_photo"
 msgstr "**Отправить фото для вашего мероприятия**👇"
+
+msgid "edit_event_ask_make_group"
+msgstr "**Вы хотите автоматически создать группу в которую будут добавляться все присоединившиеся участники?**👇"
 
 msgid "create_new"
 msgstr "Создать новое"
@@ -161,8 +173,8 @@ msgstr "**Ваше мероприятие было успешно опублик
 msgid "main_menu_users_events_categories_button"
 msgstr "Категории"
 
-msgid "main_menu_users_events_dates_button"
-msgstr "По датам"
+msgid "main_menu_users_events_from_last_button"
+msgstr "От последнего"
 
 msgid "main_menu_users_events_random_event_button"
 msgstr "Случайное"
@@ -222,3 +234,47 @@ msgstr "Это случайное мероприятие, вы можете пр
 
 msgid "list_of_random_events_one_event"
 msgstr "Сейчас созданно всего одно мероприятие \n\nВсего мероприятий:"
+
+
+
+msgid "you_dont_have_created_events"
+msgstr "У вас нет созданных мероприятий"
+
+msgid "you_dont_have_joined_to_events"
+msgstr "У вас нет мероприятий к которым вы присоединились"
+
+msgid "your_event_has_been_sent_to_verif"
+msgstr "Ваше мероприятие было отправлено для проверки"
+
+msgid "events_dosent_exist"
+msgstr "Сейчас нет доступных мероприятий"
+
+msgid "list_of_events_from_last"
+msgstr "Список всех мероприятий начиная с последнего созданного"
+
+msgid "list_of_events_from_last_one_event"
+msgstr "Список всех мероприятий начиная с последнего созданного"
+
+msgid "users_list_button"
+msgstr "Учасники"
+
+msgid "list_of_users_who_joined_this_event"
+msgstr "Список пользователей присоединившихся к данному мероприятию"
+
+msgid "location_button"
+msgstr "Место"
+
+msgid "hide_button"
+msgstr "Скрыть"
+
+msgid "follow_button"
+msgstr "Перейти"
+
+msgid "write_button"
+msgstr "Написать"
+
+msgid "creator_button"
+msgstr "Создатель"
+
+msgid "chat_button"
+msgstr "Чат"

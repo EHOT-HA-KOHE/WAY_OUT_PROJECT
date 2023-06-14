@@ -21,6 +21,7 @@ def edit_statuses_in_database(status: bool, reason, message, db_session, user):
         data = {
             "mes_id": message.id,
             "category_name": status,
+            "creator": status,
             "title": status,
             "description": status,
             "city": status,
@@ -28,6 +29,7 @@ def edit_statuses_in_database(status: bool, reason, message, db_session, user):
             "date": status,
             "location": True,
             "photo": True,
+            "make_group": True
         }
 
         json_data = json.dumps(data)

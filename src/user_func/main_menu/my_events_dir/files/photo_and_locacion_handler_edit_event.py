@@ -27,6 +27,7 @@ def accept_photo_for_edit_event(message, from_json_data, user_in_db, path_to_loc
                      f'Description: {from_json_data["description"]}\n'\
                      f'City: {from_json_data["city"]}\n'\
                      f'Max amount of people: {from_json_data["max_amount_of_people"]}\n'\
+                     f'Create group: {from_json_data["make_group"]}\n'\
                      f'Date: {from_json_data["date"]}\n'\
                      f'Location: {from_json_data["location"]}\n'\
 

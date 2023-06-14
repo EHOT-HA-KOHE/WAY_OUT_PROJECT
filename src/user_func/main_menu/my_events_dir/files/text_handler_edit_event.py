@@ -105,13 +105,28 @@ def text_handler_edit_event(message, path_to_locales, from_json_data, user_in_db
     elif not from_json_data["date"]:
         print("date")
         from_json_data["date"] = message.text
-        from_json_data["location"] = False
+        # from_json_data["location"] = False
         json_data = json.dumps(from_json_data)
         user_in_db.statuses_edit_event = json_data
+        #
+        # local_mes = return_local_text(user_id=message.chat.id, text="edit_event_ask_location", locales_dir=path_to_locales)
+        # keyboard = InlineKeyboardMarkup(
+        #     [
+        #         [InlineKeyboardButton(cancel_mes, callback_data="edit_event_cancel")],
+        #     ]
+        # )
 
-        local_mes = return_local_text(user_id=message.chat.id, text="edit_event_ask_location", locales_dir=path_to_locales)
+        local_mes = return_local_text(user_id=message.chat.id, text="edit_event_ask_make_group", locales_dir=path_to_locales)
+        # cancel_mes = return_local_text(user_id=message.chat.id, text="cancel", locales_dir=path_to_locales)
+        yes_button = return_local_text(user_id=message.chat.id, text="yes", locales_dir=path_to_locales)
+        no_button = return_local_text(user_id=message.chat.id, text="no", locales_dir=path_to_locales)
+
         keyboard = InlineKeyboardMarkup(
             [
+                [
+                    InlineKeyboardButton(no_button, callback_data="edit_event_choose_make_group_no"),
+                    InlineKeyboardButton(yes_button, callback_data="edit_event_choose_make_group_yes"),
+                ],
                 [InlineKeyboardButton(cancel_mes, callback_data="edit_event_cancel")],
             ]
         )

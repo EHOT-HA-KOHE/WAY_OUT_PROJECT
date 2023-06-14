@@ -138,9 +138,20 @@ msgstr "**Введіть дату вашої події**👇"
 msgid "edit_event_ask_location"
 msgstr "**Надішліть місце для вашої події**👇"
 
+msgid "edit_event_ask_location_prague"
+msgstr "**Надішліть геопозицію або виберіть частину Праги, в якій проходитиме захід.**👇"
+
+msgid "edit_event_choose_part_of_prague_or_send_location"
+msgstr "**Send location for your event**👇"
+
+msgid "part_of_prague_button"
+msgstr "Прага ..."
+
 msgid "edit_event_ask_photo"
 msgstr "**Надішліть фото для вашої події**👇"
 
+msgid "edit_event_ask_make_group"
+msgstr "**Ви хочете автоматично створити групу в яку будуть додаватися всі учасники, що приєдналися?**👇"
 
 msgid "create_new"
 msgstr "Створити новий"
@@ -163,8 +174,8 @@ msgstr "**Ваш захід був успішно опублікований**�
 msgid "main_menu_users_events_categories_button"
 msgstr "Категорії"
 
-msgid "main_menu_users_events_dates_button"
-msgstr "За датами"
+msgid "main_menu_users_events_from_last_button"
+msgstr "Від останнього"
 
 msgid "main_menu_users_events_random_event_button"
 msgstr "Випадкове"
@@ -205,8 +216,6 @@ msgstr "Ви приєдналися до заходу 😃👍 \nСподіва�
 msgid "choose_category_of_users_events_for_filter"
 msgstr "Виберіть категорію 👇👇👇"
 
-
-
 msgid "list_of_events_the_user_created_one_event"
 msgstr "Захід, створений користувачем (єдиний) 👆👆👆"
 
@@ -224,4 +233,46 @@ msgstr "Це випадковий захід, ви можете приєднат
 
 msgid "list_of_random_events_one_event"
 msgstr "Зараз створено лише один захід \n\nУсього заходів:"
+
+msgid "you_dont_have_created_events"
+msgstr "У вас немає створених заходів"
+
+msgid "you_dont_have_joined_to_events"
+msgstr "У вас немає заходів, до яких ви приєдналися"
+
+msgid "your_event_has_been_sent_to_verif"
+msgstr "Ваш захід було надіслано для перевірки"
+
+msgid "events_dosent_exist"
+msgstr "Наразі немає доступних заходів"
+
+msgid "list_of_events_from_last"
+msgstr "Список усіх заходів починаючи з останнього створеного"
+
+msgid "list_of_events_from_last_one_event"
+msgstr "Список усіх заходів починаючи з останнього створеного"
+
+msgid "users_list_button"
+msgstr "Учасники"
+
+msgid "list_of_users_who_joined_this_event"
+msgstr "Список користувачів, що приєдналися до цього заходу"
+
+msgid "location_button"
+msgstr "Місце"
+
+msgid "hide_button"
+msgstr "Приховати"
+
+msgid "follow_button"
+msgstr "Перейти"
+
+msgid "write_button"
+msgstr "Написати"
+
+msgid "creator_button"
+msgstr "Творець"
+
+msgid "chat_button"
+msgstr "Чат"
 

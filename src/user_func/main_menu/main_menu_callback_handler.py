@@ -1,5 +1,10 @@
 from pyrogram.types import InputMediaPhoto
 
+from src.user_func.show_users import (
+    return_users_list_for_my_events_created_by_user,
+    return_users_list_for_my_events_user_joined,
+    return_creator_of_event
+)
 from src.user_func.main_menu.my_events_dir.my_events import return_my_events_buttons, start_register_user_event
 from src.user_func.show_events import (
     show_events_created_by_user,
@@ -56,6 +61,16 @@ def main_menu_callback_pars(
                 )
                 media = InputMediaPhoto(photo, caption=response_text)
 
+            elif callback_data[30:40] == "show_users":
+                response_text, keyboard, photo = return_users_list_for_my_events_created_by_user(
+                    user_id_locales=callback_query.from_user.id,
+                    event_id_and_user_id=callback_data[41:],
+                    path_to_locales=path_to_locales,
+                    db_session=db_session,
+                    photo=photo_main_menu
+                )
+                media = InputMediaPhoto(photo, caption=response_text)
+
             else:
                 response_text, keyboard, photo = show_events_created_by_user(
                     user_id=callback_query.from_user.id,
@@ -67,14 +82,35 @@ def main_menu_callback_pars(
                 media = InputMediaPhoto(photo, caption=response_text)
 
         elif callback_data[20:28] == "i_joined":
-            response_text, keyboard, photo = show_events_the_user_joined(
-                user_id=callback_query.from_user.id,
-                event_id=callback_data[29:],
-                path_to_locales=path_to_locales,
-                db_session=db_session,
-                photo=photo_main_menu,
-            )
-            media = InputMediaPhoto(photo, caption=response_text)
+            if callback_data[29:39] == "show_users":
+                response_text, keyboard, photo = return_users_list_for_my_events_user_joined(
+                    user_id_locales=callback_query.from_user.id,
+                    event_id_and_user_id=callback_data[40:],
+                    path_to_locales=path_to_locales,
+                    db_session=db_session,
+                    photo=photo_main_menu,
+                )
+                media = InputMediaPhoto(photo, caption=response_text)
+
+            elif callback_data[29:41] == "show_creator":
+                response_text, keyboard, photo = return_creator_of_event(
+                    event_id=callback_data[42:],
+                    db_session=db_session,
+                    callback_data_for_back_button=f"{callback_data[:19]}_i_joined_{callback_data[42:]}",
+                    photo_main_menu=photo_main_menu,
+                    path_to_locales=path_to_locales,
+                )
+                media = InputMediaPhoto(photo, caption=response_text)
+
+            else:
+                response_text, keyboard, photo = show_events_the_user_joined(
+                    user_id=callback_query.from_user.id,
+                    event_id=callback_data[29:],
+                    path_to_locales=path_to_locales,
+                    db_session=db_session,
+                    photo=photo_main_menu,
+                )
+                media = InputMediaPhoto(photo, caption=response_text)
 
         else:
             response_text, keyboard = return_my_events_buttons(
