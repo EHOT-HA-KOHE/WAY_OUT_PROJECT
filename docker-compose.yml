@@ -12,3 +12,31 @@ services:
             - environment/.env.postgres
         ports:
             - "5432:5432"
+
+    redis_way_out:
+        container_name: redis_way_out
+        image: redis/redis-stack:latest
+        restart: always
+        ports:
+            - '6379:6379'
+            - '8001:8001'
+
+#    user_client_way_out:
+#        container_name: user_client_way_out
+#        network_mode: host
+#        restart: always
+#        volumes:
+#            - ./:/WAY_OUT_PROJECT
+#        build:
+#            context: ./
+#            dockerfile: src/user_client/Dockerfile
+
+    user_client_for_fun_mes:
+        container_name: user_client_for_fun_mes
+        network_mode: host
+        restart: always
+        volumes:
+            - ./:/WAY_OUT_PROJECT
+        build:
+            context: ./
+            dockerfile: src/for_fun_for_main_account/Dockerfile

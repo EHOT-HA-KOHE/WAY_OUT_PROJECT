@@ -1,4 +1,5 @@
 import json
+import time
 
 from pyrogram.types import (InlineKeyboardMarkup, InlineKeyboardButton, ChatPrivileges)
 
@@ -7,7 +8,7 @@ from src.user_func.show_events import return_event_info_and_photo
 from src.user_func.add_or_del_user_on_or_from_event import add_or_del_user_on_or_from_event
 
 
-def publish_or_reject_user_event(action, event_id, db_session, user, bot, client_chat_creator, bot_id, path_to_locales):
+def publish_or_reject_user_event(action, event_id, db_session, bot, client_chat_creator, bot_name, path_to_locales):
     if action == "publish":
         event = db_session.query(Event).filter_by(id=event_id).first()
         from_json_data = json.loads(event.temp_info)
@@ -19,13 +20,20 @@ def publish_or_reject_user_event(action, event_id, db_session, user, bot, client
 
         if from_json_data["make_group"] == "yes":
             # client_chat_creator.start()
+
             group = client_chat_creator.create_supergroup(title=f'WAY_OUT {from_json_data["title"]}')
             group_id = group.id
+            print(group_id)
 
-            # users_to_invite = [event.creator_id, bot_id]
+            # client_chat_creator.send_message(group_id, "hey")
+            # client_chat_creator.send_message(bot_name, "hey")
+
+            # time.sleep(3)
+
+            # users_to_invite = [bot_name]
             # client_chat_creator.add_chat_members(chat_id=group_id, user_ids=users_to_invite)  # todo
 
-            client_chat_creator.promote_chat_member(chat_id=group_id, user_id=bot_id,
+            client_chat_creator.promote_chat_member(chat_id=group_id, user_id=bot_name,
                                                     privileges=ChatPrivileges(
                                                         can_delete_messages=True,
                                                         can_restrict_members=True,
@@ -54,6 +62,7 @@ def publish_or_reject_user_event(action, event_id, db_session, user, bot, client
         db_session.add(event)
         # db_session.add_all([event, creator])
         event.categories.append(category)
+
         add_or_del_user_on_or_from_event(
             action="add",
             client_chat_creator=client_chat_creator,

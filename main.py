@@ -40,7 +40,7 @@ api_id_bot = 21405010
 api_hash_bot = 'f02ca9c4a50a86708d782b83682c2327'
 bot_token = '6039441521:AAElNiHFFTEu8nM9EWqtdnu17FuSOyUz-40'
 # print(bot.get_me())
-BOT_NAME = 6039441521
+BOT_NAME = "WAY_OUT_EVENTS_BOT"
 
 api_id_client = 22791055
 api_hash_client = 'cc2abc27d2cf4a60cd560253709e2767'
@@ -140,6 +140,8 @@ def del_my_account(bot, message):
     # bot.send_message(-995522785, "heya!")
     # client_chat_creator.start()
 
+    # print(bot.get_me())
+
     group = client_chat_creator.create_group(title='New Group', users=['kirshine', ])
     print(group)
     group_id = group.id
@@ -151,6 +153,23 @@ def del_my_account(bot, message):
 
     # client_chat_creator.stop()
 
+
+# =====================================
+
+
+# @bot.on_message(filters.new_chat_members)
+# def auto_approve_join_requests(client, message):
+#     print("filters.new_chat_members")
+#     chat_id = message.chat.id
+#     user_ids = [member.user.id for member in message.new_chat_members]
+#
+#     # Принятие заявок на вступление
+#     for user_id in user_ids:
+#         client.promote_chat_member(chat_id, user_id, can_invite_users=True)
+
+@bot.on_message(filters.new_chat_members)
+def auto_approve_join_requests(client, message):
+    print("Новый участник в чате:", message.new_chat_members)
 
 # =====================================
 
@@ -202,6 +221,7 @@ def text_handle(bot, message):
 
 @bot.on_message(filters.text)
 def text_handler_to_data_to_send_mes_to_users_from_admin_main(bot, message):
+    # print(message.chat.id)
     if message.chat.id == CHAT_ID_FOR_SENDING_MES_FROM_ADMIN or message.chat.id == CHAT_ID_FOR_VERIF:
         response_text, keyboard, mes_id = text_handler_to_data_to_send_mes_to_users_from_admin(text=message.text, bot=bot, message=message)
         bot.delete_messages(chat_id=message.chat.id, message_ids=message.id)
@@ -272,6 +292,14 @@ def handle_main_menu(client, callback_query):
 def add_or_del_user_on_or_from_event_handler(client, callback_query):
     callback_data = callback_query.data
 
+    # event = db_session.query(Event).filter_by(id=callback_data[37:]).first()
+
+    # invite_link = client_chat_creator.export_chat_invite_link(event.group_id)
+    # invite_link = bot.export_chat_invite_link(chat_id=event.group_id)
+
+    # invite_link = bot.create_chat_invite_link(chat_id=event.group_id, creates_join_request=True)
+    # print(invite_link.invite_link)
+
     response_text, keyboard = add_or_del_user_on_or_from_event(
         action=callback_data[33:36],
         client_chat_creator=client_chat_creator,
@@ -338,16 +366,22 @@ def handle_edit_event(client, callback_query):
 
 @bot.on_callback_query(filters.regex(r'verif_event_.*'))
 def handle_edit_event(client, callback_query):
+    # temp_bot_info = bot.get_me()
+    # bot_id = temp_bot_info.id
+    # print(f"bot_id = {bot_id}")
+
     callback_data = callback_query.data
     # print(callback_query)
+    time.sleep(2)
+    client_chat_creator.send_message(BOT_NAME, "hey")
+
     response_text = publish_or_reject_user_event(
         action=callback_data[12:19],
         event_id=callback_data[20:],
         db_session=db_session,
-        user=User,
         bot=bot,
         client_chat_creator=client_chat_creator,
-        bot_id=BOT_NAME,
+        bot_name=BOT_NAME,
         path_to_locales=PATH_TO_LOCALES
     )
 
@@ -536,6 +570,6 @@ def handle_unknown_message(client, message):
 
 
 if __name__ == '__main__':
-    print('I AM ALIVE')
+    print('I AM ALIVE BOT')
     client_chat_creator.start()
     bot.run()

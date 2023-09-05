@@ -15,20 +15,28 @@ def add_or_del_user_on_or_from_event(action, client_chat_creator, user_id, event
         # client_chat_creator.start()
         if event.group_id is not None:
             try:
-                client_chat_creator.add_chat_members(chat_id=event.group_id, user_ids=user_id)
+                # invite_link = client_chat_creator.export_chat_invite_link(event.group_id)
+                # print(invite_link)
+                print(user_id)
+                client_chat_creator.add_chat_members(chat_id=event.group_id, user_ids=[user_id])
+                response_text = return_local_text(user_id=user_id, text="user_successfully_added_to_the_event",
+                                                  locales_dir=path_to_locales)
 
-            # except Exception as e:
-            #     # Отлов любой ошибки и сохранение информации об ошибке в переменную e
-            #     print(f"Произошла ошибка: {type(e).__name__}")
             except UserPrivacyRestricted as err:
                 print(f"UserPrivacyRestricted: {err}")
+                response_text = return_local_text(user_id=user_id, text="show_button_with_link_for_chat",
+                                                  locales_dir=path_to_locales)
 
             except Exception as err:
+                print(f"Произошла ошибка: {type(err).__name__}")
                 print(err)
+                response_text = return_local_text(user_id=user_id, text="err",
+                                                  locales_dir=path_to_locales)
         # client_chat_creator.stop()
 
-        response_text = return_local_text(user_id=user_id, text="user_successfully_added_to_the_event",
-                                          locales_dir=path_to_locales)
+        else:
+            response_text = return_local_text(user_id=user_id, text="err",
+                                              locales_dir=path_to_locales)
 
     elif action == "del":
         event.attendees.remove(user_in_db)
@@ -49,4 +57,3 @@ def add_or_del_user_on_or_from_event(action, client_chat_creator, user_id, event
     )
 
     return response_text, keyboard
-

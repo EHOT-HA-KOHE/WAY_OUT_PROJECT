@@ -102,7 +102,7 @@ def return_users_events_buttons(user_id, db_session, path_to_locales):
     from_last = return_local_text(user_id=user_id, text="main_menu_users_events_from_last_button", locales_dir=path_to_locales)
     random_event = return_local_text(user_id=user_id, text="main_menu_users_events_random_event_button", locales_dir=path_to_locales)
 
-    event_ids = db_session.query(Event.id).all()
+    event_ids = db_session.query(Event.id).filter(Event.title != "").all()
     events_ids = [event_id[0] for event_id in event_ids]
     events_ids.sort(reverse=True)
 
@@ -237,7 +237,7 @@ def return_users_events_from_last(user_id, db_session, photo, event_id, path_to_
     main_menu = return_local_text(user_id=user_id, text="main_menu", locales_dir=path_to_locales)
     back_button = return_local_text(user_id=user_id, text="back_button", locales_dir=path_to_locales)
 
-    event_ids = db_session.query(Event.id).all()
+    event_ids = db_session.query(Event.id).filter(Event.title != "").all()
     events_ids = [event_id[0] for event_id in event_ids]
 
     events_ids.sort(reverse=True)
