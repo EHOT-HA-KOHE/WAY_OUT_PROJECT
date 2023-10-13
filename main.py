@@ -45,8 +45,8 @@ BOT_NAME = "WAY_OUT_EVENTS_BOT"
 api_id_client = 22791055
 api_hash_client = 'cc2abc27d2cf4a60cd560253709e2767'
 
-CHAT_ID_FOR_VERIF = -1001967733752
-CHAT_ID_FOR_SENDING_MES_FROM_ADMIN = -1001922447482
+CHAT_ID_FOR_VERIF = -1001989835657
+CHAT_ID_FOR_SENDING_MES_FROM_ADMIN = -4030011503
 PATH_TO_LOCALES = "locales/mo_files"
 PHOTO_MAIN_MENU = "AgACAgIAAxkBAAIFwWRt4KSe5O284zko1v3teK2caWUTAAJLxTEbTWFxS0qyGrww6LnfAAgBAAMCAAN4AAceBA"
 
@@ -85,6 +85,25 @@ def send_mes_to_all_users_from_admin_handler(bot, message):
             reply_markup=keyboard,
             disable_notification=True,
         )
+
+
+@bot.on_message(filters.command("send_info"))
+def send_mes_to_all_users_from_admin_handler(bot, message):
+    # print(message)
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=message
+    )
+
+
+@bot.on_message(filters.command("test") & filters.private)
+def send_mes_to_all_users_from_admin_handler(bot, message):
+    # print(message)
+    # group = client_chat_creator.create_supergroup(title="POP")
+    # group_id = group.id
+    client_chat_creator.send_message(691259064, "group_id")
+    bot.send_message(691259064, "group_id")
+    print(f"{bot}\n\n{client_chat_creator}")
 
 
 @bot.on_message(filters.command("start") & filters.private)
@@ -176,6 +195,7 @@ def auto_approve_join_requests(client, message):
 
 @bot.on_message(filters.text & filters.private)
 def text_handle(bot, message):
+    # print(message)
     user_in_db = db_session.query(User).filter(User.tg_id == message.chat.id).first()
 
     if user_in_db.status == "edit_user":
@@ -373,7 +393,7 @@ def handle_edit_event(client, callback_query):
     callback_data = callback_query.data
     # print(callback_query)
     time.sleep(2)
-    client_chat_creator.send_message(BOT_NAME, "hey")
+    # client_chat_creator.send_message(BOT_NAME, "hey")
 
     response_text = publish_or_reject_user_event(
         action=callback_data[12:19],

@@ -19,6 +19,7 @@ class Event(Base):
     photo = Column(String)
     location = Column(String)
     group_id = Column(BigInteger)
+    group_link = Column(String)
 
     temp_info = Column(JSON)
     creator_id = Column(BigInteger, ForeignKey('users.tg_id'))
@@ -29,7 +30,7 @@ class Event(Base):
 
     def __init__(
             self, title="", creator="", language="", description="", city="", max_amount_of_people="",
-            date="", photo="", location="",  temp_info="", creator_id="", group_id=None,
+            date="", photo="", location="",  temp_info="", creator_id="", group_id=None, group_link=None,
     ):
         self.language = language
         self.title = title
@@ -43,12 +44,14 @@ class Event(Base):
         self.temp_info = temp_info
         self.creator_id = creator_id
         self.group_id = group_id
+        self.group_link = group_link
 
     def __repr__(self):
         return f'language: {self.language}, title: {self.title}, creator: {self.creator}, ' \
                f'description: {self.description}, city: {self.city}, max_amount_of_people: {self.max_amount_of_people}, ' \
                f'date: {self.date}, photo: {self.photo}, location: {self.location}, ' \
-               f'temp_info: {self.temp_info}, creator_id: {self.creator_id}, group_id: {self.group_id}' \
+               f'temp_info: {self.temp_info}, creator_id: {self.creator_id}, group_id: {self.group_id}, ' \
+               f'group_link: {self.group_link}' \
 
 
 

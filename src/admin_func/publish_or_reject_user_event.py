@@ -20,7 +20,8 @@ def publish_or_reject_user_event(action, event_id, db_session, bot, client_chat_
 
         if from_json_data["make_group"] == "yes":
             # client_chat_creator.start()
-
+            print(client_chat_creator)
+            # group = client_chat_creator.create_supergroup(title=f'WAY_OUT {from_json_data["title"]}')
             group = client_chat_creator.create_supergroup(title=f'WAY_OUT {from_json_data["title"]}')
             group_id = group.id
             print(group_id)
@@ -28,10 +29,15 @@ def publish_or_reject_user_event(action, event_id, db_session, bot, client_chat_
             # client_chat_creator.send_message(group_id, "hey")
             # client_chat_creator.send_message(bot_name, "hey")
 
-            # time.sleep(3)
+            time.sleep(3)
 
-            # users_to_invite = [bot_name]
-            # client_chat_creator.add_chat_members(chat_id=group_id, user_ids=users_to_invite)  # todo
+            users_to_invite = [bot_name]
+            client_chat_creator.add_chat_members(chat_id=group_id, user_ids=users_to_invite)  # todo
+
+            invite_link = client_chat_creator.export_chat_invite_link(group_id)
+            print(invite_link)
+            client_chat_creator.send_message(group_id, invite_link)
+            event.group_link = invite_link
 
             client_chat_creator.promote_chat_member(chat_id=group_id, user_id=bot_name,
                                                     privileges=ChatPrivileges(

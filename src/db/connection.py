@@ -11,6 +11,7 @@ from src.db.models import Base
 
 USER = "USER"
 PASSWORD = "PASSWORD"
+# PASSWORD = "bnmkjbnv"
 BASE_NAME = "MAIN"
 
 DRIVER = 'postgresql+psycopg2'
