@@ -181,7 +181,7 @@ def return_users_events_by_category(user_id, db_session, photo, event_id, path_t
         else:
             next_button_number = events_ids[index + 1]
 
-        event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+        event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
         join_button = return_local_text(user_id=user_id, text="join_button", locales_dir=path_to_locales)
         location_button = return_local_text(user_id=user_id, text="location_button", locales_dir=path_to_locales)
         creator_button = return_local_text(user_id=user_id, text="creator_button", locales_dir=path_to_locales)
@@ -252,7 +252,7 @@ def return_users_events_from_last(user_id, db_session, photo, event_id, path_to_
         else:
             next_button_number = events_ids[index + 1]
 
-        event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+        event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
         join_button = return_local_text(user_id=user_id, text="join_button", locales_dir=path_to_locales)
         location_button = return_local_text(user_id=user_id, text="location_button", locales_dir=path_to_locales)
         creator_button = return_local_text(user_id=user_id, text="creator_button", locales_dir=path_to_locales)
@@ -322,7 +322,7 @@ def return_users_events_random_event(user_id, random_event_id, db_session, photo
 
         if random_event_id == "":
             random_event_id = random.choice(events_ids)
-        event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, random_event_id)
+        event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, random_event_id)
 
         if len(events_ids) == 1:
             temp_mes = return_local_text(user_id=user_id, text="list_of_random_events_one_event", locales_dir=path_to_locales)

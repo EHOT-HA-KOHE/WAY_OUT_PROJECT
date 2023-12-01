@@ -29,11 +29,12 @@ def return_event_info_and_photo(db_session, event_id):
                  # f'**Creator:** [{temp_event.creator.name}](tg://user?id={temp_event.creator.tg_id})\n'
 
     photo = temp_event.photo
+    chat_link = temp_event.group_link
     location = temp_event.location
     if location[:8] != "location":
         event_info += f'**Location:** {temp_event.location}\n'
 
-    return event_info, photo, amount_of_people, location
+    return event_info, photo, amount_of_people, location, chat_link
 
 
 def show_event_after_creating(user_id, db_session, event_id: int, path_to_locales):
@@ -45,7 +46,7 @@ def show_event_after_creating(user_id, db_session, event_id: int, path_to_locale
     )
 
     temp_mes = return_local_text(user_id=user_id, text="successfully_completed_event_creation", locales_dir=path_to_locales)
-    event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+    event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
     response_text = f"{event_info}\n\n{temp_mes}"
 
     return response_text, keyboard
@@ -71,10 +72,11 @@ def show_events_created_by_user(user_id, event_id, path_to_locales, db_session, 
         else:
             next_button_number = events_ids[index + 1]
 
-        event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+        event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
         del_event_mes = return_local_text(user_id=user_id, text="delete_button", locales_dir=path_to_locales)
         users_list_button = return_local_text(user_id=user_id, text="users_list_button", locales_dir=path_to_locales)
         location_button = return_local_text(user_id=user_id, text="location_button", locales_dir=path_to_locales)
+        chat_link_button = return_local_text(user_id=user_id, text="chat_button", locales_dir=path_to_locales)
 
         if len(events_ids) == 1:
             temp_mes = return_local_text(user_id=user_id, text="list_of_events_the_user_created_one_event", locales_dir=path_to_locales)
@@ -107,8 +109,18 @@ def show_events_created_by_user(user_id, event_id, path_to_locales, db_session, 
                 ],
             ]
 
-        if location[:8] == "location":
-            temp_keyboard.insert(1, [InlineKeyboardButton(location_button, callback_data=f"show_event_location_{event_id}")])
+        if location[:8] == "location" or chat_link is not None:
+            if location[:8] == "location":
+                temp_keyboard.insert(1, [InlineKeyboardButton(location_button, callback_data=f"show_event_location_{event_id}")])
+                if chat_link is not None:
+                    inner_temp_keyboard = temp_keyboard[1]
+                    inner_temp_keyboard.insert(0, InlineKeyboardButton(chat_link_button, url=f"{chat_link}"))  # todo chat_link_button rename
+
+            else:
+                temp_keyboard.insert(1, [InlineKeyboardButton(chat_link_button, url=f"{chat_link}")])  # todo chat_link_button rename
+
+        # if chat_link is not None:
+        #     temp_keyboard.insert(1, [InlineKeyboardButton("chat_link_button", url=f"{chat_link}")])     # todo chat_link_button rename
 
         # event = db_session.query(Event).filter_by(id=event_id).first()
         # if event.group_id is not None:
@@ -135,7 +147,7 @@ def show_events_created_by_user(user_id, event_id, path_to_locales, db_session, 
 def delete_event(user_id, event_id, path_to_locales, db_session):
     temp_mes = return_local_text(user_id=user_id, text="are_you_sure_you_want_to_delete_the_event", locales_dir=path_to_locales)
 
-    event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+    event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
     response_text = f"{event_info}\n\n{temp_mes}"
 
     main_menu = return_local_text(user_id=user_id, text="main_menu", locales_dir=path_to_locales)
@@ -199,11 +211,12 @@ def show_events_the_user_joined(user_id, event_id, path_to_locales, db_session, 
         else:
             next_button_number = events_ids[index + 1]
 
-        event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+        event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
         leave_event_mes = return_local_text(user_id=user_id, text="leave_button", locales_dir=path_to_locales)
         users_list_button = return_local_text(user_id=user_id, text="users_list_button", locales_dir=path_to_locales)
         location_button = return_local_text(user_id=user_id, text="location_button", locales_dir=path_to_locales)
         creator_button = return_local_text(user_id=user_id, text="creator_button", locales_dir=path_to_locales)
+        chat_link_button = return_local_text(user_id=user_id, text="chat_button", locales_dir=path_to_locales)
 
         if len(events_ids) == 1:
             temp_mes = return_local_text(user_id=user_id, text="list_of_events_the_user_joined_one_event",
@@ -237,8 +250,33 @@ def show_events_the_user_joined(user_id, event_id, path_to_locales, db_session, 
                 ],
             ]
 
-        if location[:8] == "location":
-            temp_keyboard[1].insert(0, InlineKeyboardButton(location_button, callback_data=f"show_event_location_{event_id}"))
+        if location[:8] == "location" or chat_link is not None:
+            if location[:8] == "location":
+                temp_keyboard[1].insert(0, InlineKeyboardButton(location_button, callback_data=f"show_event_location_{event_id}"))
+                if chat_link is not None:
+                    inner_temp_keyboard = temp_keyboard[1]
+                    inner_temp_keyboard.insert(0, InlineKeyboardButton(chat_link_button, url=f"{chat_link}"))  # todo chat_link_button rename
+
+            else:
+                temp_keyboard.insert(1, [InlineKeyboardButton(chat_link_button, url=f"{chat_link}")])  # todo chat_link_button rename
+
+
+
+
+
+        # if location[:8] == "location" or chat_link is not None:
+        #     if location[:8] == "location":
+        #         temp_keyboard.insert(1, [InlineKeyboardButton(location_button, callback_data=f"show_event_location_{event_id}")])
+        #         if chat_link is not None:
+        #             inner_temp_keyboard = temp_keyboard[1]
+        #             inner_temp_keyboard.insert(0, InlineKeyboardButton("chat_link_button", url=f"{chat_link}"))  # todo chat_link_button rename
+        #
+        #     else:
+        #         temp_keyboard.insert(1, [InlineKeyboardButton("chat_link_button", url=f"{chat_link}")])  # todo chat_link_button rename
+
+
+
+
 
         keyboard = InlineKeyboardMarkup(temp_keyboard)
         response_text = f"{event_info}\n\n{temp_mes}\n**{index+1}/{len(events_ids)}**"

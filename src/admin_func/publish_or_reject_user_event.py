@@ -85,7 +85,7 @@ def publish_or_reject_user_event(action, event_id, db_session, bot, client_chat_
         db_session.commit()
 
         if group_id is not None:
-            event_info, photo, amount_of_people, location = return_event_info_and_photo(db_session, event_id)
+            event_info, photo, amount_of_people, location, chat_link = return_event_info_and_photo(db_session, event_id)
             temp_keyboard = [
                 [InlineKeyboardButton(f"WAY_OUT_BOT", url="https://t.me/WAY_OUT_EVENTS_BOT")],
             ]
